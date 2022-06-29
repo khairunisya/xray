@@ -2,7 +2,7 @@
 
 #AutoScript by Gugun
 
-wget -O /root/domain "https://gitlab.com/wid09/nginx/-/raw/main/domain" && chmod +x domain
+wget -O /root/domain "https://raw.githubusercontent.com/khairunisya/xray/main/domain" && chmod +x domain
 
 apt update && apt upgrade -y && update-grub && sleep 2 && apt-get update -y && apt-get upgrade && sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl unzip
 
@@ -56,7 +56,7 @@ elif [[ $OS == 'ubuntu' ]]; then
 	apt install -y gnupg2 ca-certificates lsb-release ubuntu-keyring && curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor > /usr/share/keyrings/nginx-archive-keyring.gpg && printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://nginx.org/packages/mainline/ubuntu `lsb_release -cs` nginx" > /etc/apt/sources.list.d/nginx.list && printf "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900" > /etc/apt/preferences.d/99nginx && apt update -y && apt install -y nginx && mkdir -p /etc/systemd/system/nginx.service.d && printf "[Service]\nExecStartPost=/bin/sleep 0.1" > /etc/systemd/system/nginx.service.d/override.conf
 fi
 
-curl -Lo /etc/nginx/nginx.conf https://gitlab.com/wid09/nginx/raw/main/nginx.conf
+curl -Lo /etc/nginx/nginx.conf https://raw.githubusercontent.com/khairunisya/xray/main/nginx.conf
 sed -i $MYIP /etc/nginx/nginx.conf
 
 uuid=$(cat /proc/sys/kernel/random/uuid)
@@ -86,7 +86,7 @@ cat> /usr/local/etc/xray/config.json << END
         "network": "gun",
         "security": "none",
         "grpcSettings": {
-          "serviceName": "gettunel-vmess-grpc" 
+          "serviceName": "jrtunnel-vmess-grpc" 
         }
       },
       "sniffing": {
@@ -115,7 +115,7 @@ cat> /usr/local/etc/xray/config.json << END
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/gettunel-vmess-tls" 
+          "path": "/jrtunnel" 
         }
       },
       "sniffing": {
@@ -144,7 +144,7 @@ cat> /usr/local/etc/xray/config.json << END
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/gettunel-vless-tls"
+          "path": "/jrtunnel"
         }
       },
       "sniffing": {
@@ -173,7 +173,7 @@ cat> /usr/local/etc/xray/config.json << END
         "network": "gun",
         "security": "none",
         "grpcSettings": {
-          "serviceName": "gettunel-vless-grpc" 
+          "serviceName": "jrtunnel-vless-grpc" 
         }
       },
       "sniffing": {
@@ -266,7 +266,7 @@ cat> /usr/local/etc/xray/none.json << END
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/gettunel-vmess-none"
+          "path": "/jrtunnel"
         }
       },
       "sniffing": {
@@ -294,7 +294,7 @@ cat> /usr/local/etc/xray/none.json << END
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/gettunel-vless-none"
+          "path": "/jrtunnel"
         }
       },
       "sniffing": {
@@ -398,21 +398,21 @@ rm -rf ddos.zip ddos-deflate
 
 # Download Menu
 cd /usr/bin
-wget -O addws "https://gitlab.com/wid09/nginx/-/raw/main/addws.sh" && chmod +x addws
-wget -O addvless "https://gitlab.com/wid09/nginx/-/raw/main/addvless.sh" && chmod +x addvless
-wget -O cekws "https://gitlab.com/wid09/nginx/-/raw/main/cekws.sh" && chmod +x cekws
-wget -O dellws "https://gitlab.com/wid09/nginx/-/raw/main/dellws.sh" && chmod +x dellws
-wget -O dellvless "https://gitlab.com/wid09/nginx/-/raw/main/dellvless.sh" && chmod +x dellvless
-wget -O xp-ws "https://gitlab.com/wid09/nginx/-/raw/main/xp-ws.sh" && chmod +x xp-ws
-wget -O xp-vless "https://gitlab.com/wid09/nginx/-/raw/main/xp-vless.sh" && chmod +x xp-vless
+wget -O addws "https://raw.githubusercontent.com/khairunisya/xray/main/addws.sh" && chmod +x addws
+wget -O addvless "https://raw.githubusercontent.com/khairunisya/xray/main/addvless.sh" && chmod +x addvless
+wget -O cekws "https://raw.githubusercontent.com/khairunisya/xray/main/cekws.sh" && chmod +x cekws
+wget -O dellws "https://raw.githubusercontent.com/khairunisya/xray/main/dellws.sh" && chmod +x dellws
+wget -O dellvless "https://raw.githubusercontent.com/khairunisya/xray/main/dellvless.sh" && chmod +x dellvless
+wget -O xp-ws "https://raw.githubusercontent.com/khairunisya/xray/main/xp-ws.sh" && chmod +x xp-ws
+wget -O xp-vless "https://raw.githubusercontent.com/khairunisya/xray/main/xp-vless.sh" && chmod +x xp-vless
 
 cd
 echo "0 4 * * * root reboot" >> /etc/crontab
 echo "0 0 * * * root xp-ws" >> /etc/crontab
 echo "0 0 * * * root xp-vless" >> /etc/crontab
 
-wget https://gitlab.com/wid09/multi-trojan-xray/-/raw/main/set-br.sh && chmod +x set-br.sh && sed -i -e 's/\r$//' set-br.sh && ./set-br.sh && rm -f /root/set-br.sh
-wget https://gitlab.com/wid09/nginx/-/raw/main/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+wget https://raw.githubusercontent.com/khairunisya/xray/main/set-br.sh && chmod +x set-br.sh && sed -i -e 's/\r$//' set-br.sh && ./set-br.sh && rm -f /root/set-br.sh
+wget https://raw.githubusercontent.com/khairunisya/xray/main/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 cp domain /usr/local/etc/xray/
 echo "==================================="  | tee -a log-install.txt
 echo "====AutoScript XRay VMess/VLess===="  | tee -a log-install.txt

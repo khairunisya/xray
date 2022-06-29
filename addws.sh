@@ -43,13 +43,13 @@ echo -e "${user}\t${uuid}\t${exp}" >> /usr/local/etc/xray/vmess.conf
 cat>/usr/local/etc/xray/vmess-$user-tls.json<<EOF
 {
       "v": "2",
-      "ps": "GETTUNEL.COM-${user}-TLS",
+      "ps": "jrtunnel.com-${user}-TLS",
       "add": "${domain}",
       "port": "${tls}",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/gettunel-vmess-tls",
+      "path": "/jrtunnel",
       "type": "none",
       "host": "",
       "tls": "tls"
@@ -58,13 +58,13 @@ EOF
 cat>/usr/local/etc/xray/vmess-$user-none.json<<EOF
 {
       "v": "2",
-      "ps": "GETTUNEL.COM-${user}-none",
+      "ps": "jrtunnel.com-${user}-none",
       "add": "${domain}",
       "port": "${nontls}",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/gettunel-vmess-none",
+      "path": "/jrtunnel",
       "type": "none",
       "host": "",
       "tls": "none"
@@ -73,13 +73,13 @@ EOF
 cat>/usr/local/etc/xray/vmess-$user-grpc.json<<EOF
       {
       "v": "2",
-      "ps": "GETTUNEL.COM-${user}-gRPC",
+      "ps": "jrtunnel.com-${user}-gRPC",
       "add": "${domain}",
       "port": "${grpc}",
       "aid": "0",
       "type": "gun",
       "net": "grpc",
-      "path": "gettunel-vmess-grpc",
+      "path": "jrtunnel-vmess-grpc",
       "host": "",
       "id": "${uuid}",
       "tls": "tls"
@@ -107,9 +107,9 @@ echo -e "User ID     : ${uuid}"
 echo -e "Alter ID    : 0"
 echo -e "Security    : auto"
 echo -e "Network     : ws"
-echo -e "Path TLS    : /gettunel-vmess-tls"
-echo -e "Path None   : /gettunel-vmess-none"
-echo -e "serviceName : gettunel-vmeess-grpc"
+echo -e "Path TLS    : /jrtunnel"
+echo -e "Path None   : /jrtunnel"
+echo -e "serviceName : jrtunnel-vmeess-grpc"
 echo -e "Expired     : $exp"
 echo -e "========================="
 echo -e "Link TLS    : ${xrayv2ray1}"

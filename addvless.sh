@@ -40,9 +40,9 @@ sed -i '/#xray-vless-nontls$/a\#vlnone# '"$user $exp"'\
 sed -i '/#xray-vless-grpc$/a\#vlgrpc# '"$user $exp"'\
 },{"id": "'""$uuid""'","level": '"0"',"email": "'""$email""'"' /usr/local/etc/xray/config.json
 echo -e "${user}\t${uuid}\t${exp}" >> /usr/local/etc/xray/vless.conf
-vlesslink1="vless://${uuid}@${domain}:$tls?path=/gettunel-vless-tls&security=tls&encryption=none&type=ws#GETTUNEL.COM+${user}+TLS"
-vlesslink2="vless://${uuid}@${domain}:$none?path=/gettunel-vless-none&encryption=none&type=ws#GETTUNEL.COM+${user}+none"
-vlesslink3="vless://${uuid}@${domain}:${grpc}?encryption=none&security=tls&type=grpc&serviceName=gettunel-vless-grpc&mode=gun#GETTUNEL.COM+${user}+gRPC"
+vlesslink1="vless://${uuid}@${domain}:$tls?path=/jrtunnel&security=tls&encryption=none&type=ws#jrtunnel.com+${user}+TLS"
+vlesslink2="vless://${uuid}@${domain}:$none?path=/jrtunnel&encryption=none&type=ws#jrtunnel.com+${user}+none"
+vlesslink3="vless://${uuid}@${domain}:${grpc}?encryption=none&security=tls&type=grpc&serviceName=jrtunnel-vless-grpc&mode=gun#jrtunnel.com+${user}+gRPC"
 systemctl restart xray.service
 systemctl restart xray@none.service
 service cron restart
@@ -58,9 +58,9 @@ echo -e "Port gRPC   : ${grpc}"
 echo -e "User ID     : ${uuid}"
 echo -e "Encryption  : none"
 echo -e "Network     : ws"
-echo -e "Path TLS    : /gettunel-vless-tls"
-echo -e "Path None   : /gettunel-vless-none"
-echo -e "serviceName : gettunel-vless-grpc"
+echo -e "Path TLS    : /jrtunnel"
+echo -e "Path None   : /jrtunnel"
+echo -e "serviceName : jrtunnel-vless-grpc"
 echo -e "Expired     : $exp"
 echo -e "========================="
 echo -e "Link TLS    : ${vlesslink1}"
