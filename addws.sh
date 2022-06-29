@@ -49,7 +49,7 @@ cat>/usr/local/etc/xray/vmess-$user-tls.json<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/jrtunnel",
+      "path": "/jrtunnel-vmess",
       "type": "none",
       "host": "",
       "tls": "tls"
@@ -64,7 +64,7 @@ cat>/usr/local/etc/xray/vmess-$user-none.json<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/jrtunnel",
+      "path": "/jrtunnel-vmess",
       "type": "none",
       "host": "",
       "tls": "none"
@@ -107,8 +107,8 @@ echo -e "User ID     : ${uuid}"
 echo -e "Alter ID    : 0"
 echo -e "Security    : auto"
 echo -e "Network     : ws"
-echo -e "Path TLS    : /jrtunnel"
-echo -e "Path None   : /jrtunnel"
+echo -e "Path TLS    : /jrtunnel-vmess"
+echo -e "Path None   : /jrtunnel-vmess"
 echo -e "serviceName : jrtunnel-vmeess-grpc"
 echo -e "Expired     : $exp"
 echo -e "========================="

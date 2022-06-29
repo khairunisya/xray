@@ -115,7 +115,7 @@ cat> /usr/local/etc/xray/config.json << END
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/jrtunnel" 
+          "path": "/jrtunnel-vmess" 
         }
       },
       "sniffing": {
@@ -144,7 +144,7 @@ cat> /usr/local/etc/xray/config.json << END
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/jrtunnel"
+          "path": "/jrtunnel-vless"
         }
       },
       "sniffing": {
@@ -266,7 +266,7 @@ cat> /usr/local/etc/xray/none.json << END
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/jrtunnel"
+          "path": "/jrtunnel-vmess"
         }
       },
       "sniffing": {
@@ -294,7 +294,7 @@ cat> /usr/local/etc/xray/none.json << END
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/jrtunnel"
+          "path": "/jrtunnel-vless"
         }
       },
       "sniffing": {
